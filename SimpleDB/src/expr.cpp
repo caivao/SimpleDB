@@ -2,7 +2,7 @@
 //  expr.cpp
 //  SimpleDB
 //
-//  Created by OYO on 2019/6/5.
+//  Created by lifeng on 2019/6/5.
 //  Copyrhs © 2019 feng. All rhss reserved.
 //
 
@@ -282,62 +282,62 @@ namespace SDB {
     
     Expr Expr::avg(bool distinct) const
     {
-        return Expr::ffunction("AVG", {*this}, distinct);
+        return Expr::functionn("AVG", {*this}, distinct);
     }
     
     Expr Expr::count(bool distinct) const
     {
-        return Expr::ffunction("COUNT", {*this}, distinct);
+        return Expr::functionn("COUNT", {*this}, distinct);
     }
     
     Expr Expr::max(bool distinct) const
     {
-        return Expr::ffunction("MAX", {*this}, distinct);
+        return Expr::functionn("MAX", {*this}, distinct);
     }
     
     Expr Expr::min(bool distinct) const
     {
-        return Expr::ffunction("MIN", {*this}, distinct);
+        return Expr::functionn("MIN", {*this}, distinct);
     }
     
     Expr Expr::sum(bool distinct) const
     {
-        return Expr::ffunction("SUM", {*this}, distinct);
+        return Expr::functionn("SUM", {*this}, distinct);
     }
     
     Expr Expr::total(bool distinct) const
     {
-        return Expr::ffunction("TOTAL", {*this}, distinct);
+        return Expr::functionn("TOTAL", {*this}, distinct);
     }
     
     Expr Expr::abs(bool distinct) const
     {
-        return Expr::ffunction("ABS", {*this}, distinct);
+        return Expr::functionn("ABS", {*this}, distinct);
     }
     
     Expr Expr::hex(bool distinct) const
     {
-        return Expr::ffunction("HEX", {*this}, distinct);
+        return Expr::functionn("HEX", {*this}, distinct);
     }
     
     Expr Expr::length(bool distinct) const
     {
-        return Expr::ffunction("LENGTH", {*this}, distinct);
+        return Expr::functionn("LENGTH", {*this}, distinct);
     }
     
     Expr Expr::lower(bool distinct) const
     {
-        return Expr::ffunction("LOWER", {*this}, distinct);
+        return Expr::functionn("LOWER", {*this}, distinct);
     }
     
     Expr Expr::upper(bool distinct) const
     {
-        return Expr::ffunction("UPPER", {*this}, distinct);
+        return Expr::functionn("UPPER", {*this}, distinct);
     }
     
     Expr Expr::round(bool distinct) const
     {
-        return Expr::ffunction("ROUND", {*this}, distinct);
+        return Expr::functionn("ROUND", {*this}, distinct);
     }
 }
 

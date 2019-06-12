@@ -2,7 +2,7 @@
 //  statement_update.hpp
 //  SimpleDB
 //
-//  Created by OYO on 2019/6/6.
+//  Created by lifeng on 2019/6/6.
 //  Copyright © 2019 feng. All rights reserved.
 //
 
@@ -22,8 +22,8 @@ namespace SDB {
             Update &update(const std::string &table, Conflict conflict = Conflict::none);
             
             template <typename T, typename U>
-            typename std::enable_if<std::is_base_of<Column, T>::value &&
-            std::is_base_of<Expr, U>::value,
+            typename std::enable_if<std::is_base_of<Column, T>::value
+            && std::is_base_of<Expr, U>::value,
             Update &>::type
             set(const std::list<const std::pair<const T, const U>> &value_list)
             {

@@ -2,7 +2,7 @@
 //  expr.hpp
 //  SimpleDB
 //
-//  Created by OYO on 2019/6/5.
+//  Created by lifeng on 2019/6/5.
 //  Copyright © 2019 feng. All rights reserved.
 //
 
@@ -140,7 +140,7 @@ namespace SDB {
         template <typename T = Expr>
         static typename std::enable_if<std::is_base_of<Expr, T>::value,
         Expr>::type
-        ffunction(const std::string &function,
+        functionn(const std::string &function,
                   const std::list<const T> &expr_list,
                   bool distinct = false)
         {
