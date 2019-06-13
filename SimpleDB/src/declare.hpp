@@ -17,6 +17,19 @@
 #include <utility>
 
 namespace SDB {
+    
+    /// tools
+    class Error;
+    class Releasable;
+    
+    /// action
+    class Base;
+    class Pool;
+    class Database;
+    class Transaction;
+    class Configure;
+    
+    /// sql
     class Describable;
     class Column;
     class ColumnDef;
@@ -27,10 +40,16 @@ namespace SDB {
     class ValueWrapper;
     class NestedQuery;
     class Join;
+    class Handle;
+    class ValueBinder;
+    class Tracer;
+    class TableConstraint;
+    class ModuleArgument;
     
     namespace STMT {
         class Statement;
         class CreateTable;
+        class CreateVirtualTable;
         class DropTable;
         class AlterTable;
         class CreateIndex;
@@ -43,6 +62,9 @@ namespace SDB {
         class Vacuum;
         class Rollback;
         class SavePoint;
+        class Detach;
+        class Attach;
+        class Explain;
     }
     
     typedef std::list<const Expr> ExprList;
