@@ -14,6 +14,8 @@
 		3513D14A22A903E800D077E4 /* statement_create_index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513D14822A903E800D077E4 /* statement_create_index.cpp */; };
 		3513D14D22A903F700D077E4 /* statement_drop_index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513D14B22A903F700D077E4 /* statement_drop_index.cpp */; };
 		3513D15022A9057500D077E4 /* column_index.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3513D14E22A9057500D077E4 /* column_index.cpp */; };
+		351535D022B256CB00EEA79D /* rwlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 351535CE22B256CB00EEA79D /* rwlock.cpp */; };
+		351535D622B2583300EEA79D /* spin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 351535D422B2583300EEA79D /* spin.cpp */; };
 		3527147B22A76E2D004AC52F /* expr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3527147922A76E2D004AC52F /* expr.cpp */; };
 		3527147E22A76E3C004AC52F /* base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3527147C22A76E3C004AC52F /* base.cpp */; };
 		3527148122A76E4A004AC52F /* database.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3527147F22A76E4A004AC52F /* database.cpp */; };
@@ -37,7 +39,9 @@
 		3565046B22B2229D00FE56E9 /* table_constraint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3565046922B2229D00FE56E9 /* table_constraint.cpp */; };
 		3565046E22B2244400FE56E9 /* module_argument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3565046C22B2244400FE56E9 /* module_argument.cpp */; };
 		3565047122B226E300FE56E9 /* configure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3565046F22B226E300FE56E9 /* configure.cpp */; };
-		3565047D22B229B000FE56E9 /* pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3565047B22B229B000FE56E9 /* pool.cpp */; };
+		3565048622B2481000FE56E9 /* handle_releasable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3565048422B2481000FE56E9 /* handle_releasable.cpp */; };
+		3565048922B2482800FE56E9 /* statement_releasable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3565048722B2482800FE56E9 /* statement_releasable.cpp */; };
+		3565048C22B2483800FE56E9 /* handle_pool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3565048A22B2483800FE56E9 /* handle_pool.cpp */; };
 		35A6D62122AF53F000D33EF5 /* value_wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D61F22AF53F000D33EF5 /* value_wrapper.cpp */; };
 		35A6D62422AF868300D33EF5 /* statement_rollback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D62222AF868300D33EF5 /* statement_rollback.cpp */; };
 		35A6D62722AF88AF00D33EF5 /* statement_savepoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 35A6D62522AF88AF00D33EF5 /* statement_savepoint.cpp */; };
@@ -81,6 +85,13 @@
 		3513D14C22A903F700D077E4 /* statement_drop_index.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = statement_drop_index.hpp; sourceTree = "<group>"; };
 		3513D14E22A9057500D077E4 /* column_index.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = column_index.cpp; sourceTree = "<group>"; };
 		3513D14F22A9057500D077E4 /* column_index.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = column_index.hpp; sourceTree = "<group>"; };
+		351535CE22B256CB00EEA79D /* rwlock.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rwlock.cpp; sourceTree = "<group>"; };
+		351535CF22B256CB00EEA79D /* rwlock.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rwlock.hpp; sourceTree = "<group>"; };
+		351535D222B2581B00EEA79D /* concurrent_list.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = concurrent_list.hpp; sourceTree = "<group>"; };
+		351535D422B2583300EEA79D /* spin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = spin.cpp; sourceTree = "<group>"; };
+		351535D522B2583300EEA79D /* spin.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = spin.hpp; sourceTree = "<group>"; };
+		351535D822B2584700EEA79D /* thread_local.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = thread_local.hpp; sourceTree = "<group>"; };
+		351535DB22B2585900EEA79D /* timed_queue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = timed_queue.hpp; sourceTree = "<group>"; };
 		3527147922A76E2D004AC52F /* expr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = expr.cpp; sourceTree = "<group>"; };
 		3527147A22A76E2D004AC52F /* expr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = expr.hpp; sourceTree = "<group>"; };
 		3527147C22A76E3C004AC52F /* base.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = base.cpp; sourceTree = "<group>"; };
@@ -130,10 +141,14 @@
 		3565047022B226E300FE56E9 /* configure.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = configure.hpp; sourceTree = "<group>"; };
 		3565047622B2271300FE56E9 /* sql.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = sql.hpp; sourceTree = "<group>"; };
 		3565047922B2293700FE56E9 /* action.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = action.hpp; sourceTree = "<group>"; };
-		3565047B22B229B000FE56E9 /* pool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pool.cpp; sourceTree = "<group>"; };
-		3565047C22B229B000FE56E9 /* pool.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pool.hpp; sourceTree = "<group>"; };
 		3565047F22B22F6E00FE56E9 /* utils.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utils.hpp; sourceTree = "<group>"; };
 		3565048222B23DCA00FE56E9 /* releasable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = releasable.hpp; sourceTree = "<group>"; };
+		3565048422B2481000FE56E9 /* handle_releasable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = handle_releasable.cpp; sourceTree = "<group>"; };
+		3565048522B2481000FE56E9 /* handle_releasable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = handle_releasable.hpp; sourceTree = "<group>"; };
+		3565048722B2482800FE56E9 /* statement_releasable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = statement_releasable.cpp; sourceTree = "<group>"; };
+		3565048822B2482800FE56E9 /* statement_releasable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = statement_releasable.hpp; sourceTree = "<group>"; };
+		3565048A22B2483800FE56E9 /* handle_pool.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = handle_pool.cpp; sourceTree = "<group>"; };
+		3565048B22B2483800FE56E9 /* handle_pool.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = handle_pool.hpp; sourceTree = "<group>"; };
 		35A6D61F22AF53F000D33EF5 /* value_wrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = value_wrapper.cpp; sourceTree = "<group>"; };
 		35A6D62022AF53F000D33EF5 /* value_wrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = value_wrapper.hpp; sourceTree = "<group>"; };
 		35A6D62222AF868300D33EF5 /* statement_rollback.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = statement_rollback.cpp; sourceTree = "<group>"; };
@@ -267,8 +282,6 @@
 		35A6D63B22B0AEB800D33EF5 /* action */ = {
 			isa = PBXGroup;
 			children = (
-				3565047B22B229B000FE56E9 /* pool.cpp */,
-				3565047C22B229B000FE56E9 /* pool.hpp */,
 				3527147C22A76E3C004AC52F /* base.cpp */,
 				3527147D22A76E3C004AC52F /* base.hpp */,
 				3527147F22A76E4A004AC52F /* database.cpp */,
@@ -277,6 +290,12 @@
 				3527148322A76E5A004AC52F /* transaction.hpp */,
 				3565046F22B226E300FE56E9 /* configure.cpp */,
 				3565047022B226E300FE56E9 /* configure.hpp */,
+				3565048A22B2483800FE56E9 /* handle_pool.cpp */,
+				3565048B22B2483800FE56E9 /* handle_pool.hpp */,
+				3565048422B2481000FE56E9 /* handle_releasable.cpp */,
+				3565048522B2481000FE56E9 /* handle_releasable.hpp */,
+				3565048722B2482800FE56E9 /* statement_releasable.cpp */,
+				3565048822B2482800FE56E9 /* statement_releasable.hpp */,
 				3565047922B2293700FE56E9 /* action.hpp */,
 			);
 			path = action;
@@ -291,8 +310,15 @@
 				35A6D64722B0D19E00D33EF5 /* file.hpp */,
 				35A6D64922B0D1B200D33EF5 /* path.cpp */,
 				35A6D64A22B0D1B200D33EF5 /* path.hpp */,
-				3565047F22B22F6E00FE56E9 /* utils.hpp */,
 				3565048222B23DCA00FE56E9 /* releasable.hpp */,
+				351535CE22B256CB00EEA79D /* rwlock.cpp */,
+				351535CF22B256CB00EEA79D /* rwlock.hpp */,
+				351535D222B2581B00EEA79D /* concurrent_list.hpp */,
+				351535D422B2583300EEA79D /* spin.cpp */,
+				351535D522B2583300EEA79D /* spin.hpp */,
+				351535D822B2584700EEA79D /* thread_local.hpp */,
+				351535DB22B2585900EEA79D /* timed_queue.hpp */,
+				3565047F22B22F6E00FE56E9 /* utils.hpp */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -390,6 +416,7 @@
 			files = (
 				3513D15022A9057500D077E4 /* column_index.cpp in Sources */,
 				3527148422A76E5A004AC52F /* transaction.cpp in Sources */,
+				351535D622B2583300EEA79D /* spin.cpp in Sources */,
 				35497CF122A8BF20009C49EC /* statement_select.cpp in Sources */,
 				35A6D62722AF88AF00D33EF5 /* statement_savepoint.cpp in Sources */,
 				35497CFA22A8BF6A009C49EC /* statement_vacuum.cpp in Sources */,
@@ -397,21 +424,24 @@
 				3527148722A76E6B004AC52F /* pragma.cpp in Sources */,
 				3565045F22B0FE1C00FE56E9 /* handle.cpp in Sources */,
 				35497CFD22A8BF90009C49EC /* statement_attach.cpp in Sources */,
+				351535D022B256CB00EEA79D /* rwlock.cpp in Sources */,
 				35A6D64B22B0D1B200D33EF5 /* path.cpp in Sources */,
 				35B7426722A90A0E008D7AB4 /* order.cpp in Sources */,
 				35A6D64222B0AF3200D33EF5 /* value_binder.cpp in Sources */,
 				35497D0022A8BFA2009C49EC /* statement_detach.cpp in Sources */,
 				35A6D62422AF868300D33EF5 /* statement_rollback.cpp in Sources */,
+				3565048C22B2483800FE56E9 /* handle_pool.cpp in Sources */,
 				35A6D62A22AF8A6F00D33EF5 /* statement_explain.cpp in Sources */,
 				35A6D64822B0D19E00D33EF5 /* file.cpp in Sources */,
 				35497CE822A8BEB1009C49EC /* statement_insert.cpp in Sources */,
 				35A6D63622AFA31500D33EF5 /* join.cpp in Sources */,
 				3513D14722A9032400D077E4 /* statement_alter_table.cpp in Sources */,
+				3565048922B2482800FE56E9 /* statement_releasable.cpp in Sources */,
 				35B7426A22A90A22008D7AB4 /* conflict.cpp in Sources */,
 				3565046522B1F32100FE56E9 /* tracer.cpp in Sources */,
 				35497D0922A8C583009C49EC /* column_def.cpp in Sources */,
 				3527148122A76E4A004AC52F /* database.cpp in Sources */,
-				3565047D22B229B000FE56E9 /* pool.cpp in Sources */,
+				3565048622B2481000FE56E9 /* handle_releasable.cpp in Sources */,
 				3527149022A76F3A004AC52F /* describable.cpp in Sources */,
 				3527148D22A76E8D004AC52F /* column.cpp in Sources */,
 				3565046B22B2229D00FE56E9 /* table_constraint.cpp in Sources */,

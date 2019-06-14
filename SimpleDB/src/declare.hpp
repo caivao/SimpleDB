@@ -20,14 +20,16 @@ namespace SDB {
     
     /// tools
     class Error;
-    class Releasable;
+//    class Releasable;
     
     /// action
     class Base;
-    class Pool;
     class Database;
     class Transaction;
     class Configure;
+    class HandlePool;
+    class HandleReleasable;
+    class StatementReleasable;
     
     /// sql
     class Describable;

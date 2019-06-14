@@ -12,5 +12,10 @@
 #include "error.hpp"
 #include "file.hpp"
 #include "path.hpp"
+#include "releasable.hpp"
+#include "rwlock.hpp"
+#include "concurrent_list.hpp"
+#include "thread_local.hpp"
+#include "timed_queue.hpp"
 
 #endif /* utils_hpp */
