@@ -31,7 +31,7 @@ namespace SDB {
         friend bool operator==(const Configure &lhs, const Configure &rhs);
         friend bool operator!=(const Configure &lhs, const Configure &rhs);
         
-        Configure();
+        Configure(void);
         Configure(std::initializer_list<const ConfigWrapper> configures);
         
         Config get_config(const std::string &name) const;

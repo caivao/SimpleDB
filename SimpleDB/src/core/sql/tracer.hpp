@@ -21,7 +21,7 @@ namespace SDB {
     
     class Tracer {
     public:
-        Tracer();
+        Tracer(void);
         
         void set(const PerformanceTraceHandle &handle, void *context);
         void trace_performance(const std::string &sql, const int64_t &time);
@@ -34,13 +34,14 @@ namespace SDB {
         
         void enter_transaction(void);
         void exit_transaction(void);
+        
     protected:
-        PerformanceTraceHandle _performance_trace_handle;
+        PerformanceTraceHandle _performance_tracer_handle;
         int64_t _time;
         bool _in_transaction;
-        std::map<const std::string, unsigned int> _footprint;
+        std::map<const std::string, unsigned int> _performance_caches;
         
-        SQLTraceHandle _sql_trace_handle;
+        SQLTraceHandle _sql_tracer_handle;
     };
 }
 

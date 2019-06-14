@@ -16,7 +16,7 @@ namespace SDB {
     template <typename T>
     class ThreadLocal {
     public:
-        ThreadLocal()
+        ThreadLocal(void)
         : _default_value(nullptr)
         {
             pthread_key_create(&_key, [](void *value) { delete (T *) value; });
@@ -28,7 +28,7 @@ namespace SDB {
             pthread_key_create(&_key, [](void *value) { delete (T *) value; });
         }
         
-        T *get()
+        T *get(void)
         {
             T *value = (T *) pthread_getspecific(_key);
             if (value) {
@@ -42,7 +42,7 @@ namespace SDB {
             return value;
         }
         
-        ~ThreadLocal()
+        ~ThreadLocal(void)
         {
             if (_default_value) {
                 delete _default_value;

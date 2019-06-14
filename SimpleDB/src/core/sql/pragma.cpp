@@ -90,7 +90,7 @@ namespace SDB {
     const Pragma Pragma::wal_checkpoint("wal_checkpoint");
     const Pragma Pragma::writable_schema("writable_schema");
     
-    const std::string &Pragma::get_name() const
+    const std::string &Pragma::get_name(void) const
     {
         return _description;
     }

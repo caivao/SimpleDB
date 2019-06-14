@@ -39,7 +39,7 @@ namespace SDB {
         });
     }
     
-    void HandlePool::purge_all_free_handles()
+    void HandlePool::purge_all_free_handles(void)
     {
         std::list<std::shared_ptr<HandlePool>> pools;
         {
@@ -60,17 +60,17 @@ namespace SDB {
     , _alive_handle_count(0)
     {}
     
-    void HandlePool::blockade()
+    void HandlePool::blockade(void)
     {
         _rwlock.lock_write();
     }
     
-    void HandlePool::unblockade()
+    void HandlePool::unblockade(void)
     {
         _rwlock.unlock_write();
     }
     
-    bool HandlePool::is_blockaded() const
+    bool HandlePool::is_blockaded(void) const
     {
         return _rwlock.is_writing();
     }
@@ -86,7 +86,7 @@ namespace SDB {
         _rwlock.unlock_write();
     }
     
-    void HandlePool::purge_free_handles()
+    void HandlePool::purge_free_handles(void)
     {
         _rwlock.lock_read();
         int size = (int) _handles.clear();
@@ -94,7 +94,7 @@ namespace SDB {
         _rwlock.unlock_read();
     }
     
-    bool HandlePool::is_drained()
+    bool HandlePool::is_drained(void)
     {
         return _alive_handle_count == 0;
     }
@@ -102,7 +102,7 @@ namespace SDB {
     HandleReleasable HandlePool::flow_out(Error &error)
     {
         _rwlock.lock_read();
-        std::shared_ptr<HandleWrapper> handle_wrapper = _handles.popBack();
+        std::shared_ptr<HandleWrapper> handle_wrapper = _handles.pop_back();
         if (handle_wrapper == nullptr) {
             if (_alive_handle_count < _max_concurrency) {
                 handle_wrapper = generate(error);

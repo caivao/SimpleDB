@@ -18,22 +18,22 @@ namespace SDB {
     : _description(std::string(description))
     {}
     
-    Describable::~Describable()
+    Describable::~Describable(void)
     {
 //        std::cout << _description << std::endl;
     }
     
-    const std::string &Describable::get_description() const
+    const std::string &Describable::get_description(void) const
     {
         return _description;
     }
     
-    Describable::operator const std::string &() const
+    Describable::operator const std::string &(void) const
     {
         return _description;
     }
     
-    bool Describable::empty() const {
+    bool Describable::empty(void) const {
         return _description.empty();
     }
     

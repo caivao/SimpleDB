@@ -10,7 +10,7 @@
 
 namespace SDB {
     
-    Configure::Configure()
+    Configure::Configure(void)
     : _configures(new ConfigureList)
     {
     }

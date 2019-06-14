@@ -21,7 +21,7 @@ namespace SDB {
         NestedQuery(const STMT::Select &select);
         
         NestedQuery &as(const std::string &alias);
-        operator NestedQueryList() const;
+        operator NestedQueryList(void) const;
     };
 }
 

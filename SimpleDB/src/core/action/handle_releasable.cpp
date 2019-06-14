@@ -18,7 +18,7 @@ namespace SDB {
     : _value(value), _releasable(value, on_released)
     {}
     
-    HandleReleasable::operator bool() const
+    HandleReleasable::operator bool(void) const
     {
         return _value != nullptr;
     }

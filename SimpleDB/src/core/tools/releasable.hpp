@@ -57,7 +57,7 @@ namespace SDB {
             return *this;
         }
         
-        ~Releasable()
+        ~Releasable(void)
         {
             release();
         }

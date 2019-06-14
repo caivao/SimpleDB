@@ -22,7 +22,7 @@ namespace SDB {
         : _capacity_cap(capacity_cap)
         {}
         
-        size_t get_capacity_cap() const
+        size_t get_capacity_cap(void) const
         {
             SpinLockGuard<Spin> lockGuard(_spin);
             return _capacity_cap;
@@ -48,7 +48,7 @@ namespace SDB {
             return false;
         }
         
-        ElementType popBack()
+        ElementType pop_back(void)
         {
             SpinLockGuard<Spin> lock_guard(_spin);
             if (_list.empty()) {
@@ -59,7 +59,7 @@ namespace SDB {
             return value;
         }
         
-        ElementType popFront()
+        ElementType pop_front(void)
         {
             SpinLockGuard<Spin> lock_guard(_spin);
             if (_list.empty()) {
@@ -70,19 +70,19 @@ namespace SDB {
             return value;
         }
         
-        bool isEmpty() const
+        bool empty(void) const
         {
             SpinLockGuard<Spin> lock_guard(_spin);
             return _list.empty();
         }
         
-        size_t size() const
+        size_t size(void) const
         {
             SpinLockGuard<Spin> lock_guard(_spin);
             return _list.size();
         }
         
-        size_t clear()
+        size_t clear(void)
         {
             SpinLockGuard<Spin> lock_guard(_spin);
             size_t size = _list.size();

@@ -31,10 +31,10 @@ namespace SDB {
             component_join(list, _description, separator);
         }
         
-        const std::string &get_description() const;
-        explicit operator const std::string &() const;
+        const std::string &get_description(void) const;
+        explicit operator const std::string &(void) const;
         
-        bool empty() const;
+        bool empty(void) const;
         
         friend std::ostream & operator <<(std::ostream &out, const Describable & expr);
         
@@ -60,7 +60,7 @@ namespace SDB {
         Describable(const std::string &description);
         Describable(const char *description);
         
-        ~Describable();
+        ~Describable(void);
         
         std::string _description;
     };

@@ -20,7 +20,7 @@ namespace SDB {
     public:
         HandleWrapper(const std::shared_ptr<Handle> &handle, const Configure &configure);
         
-        constexpr Handle *operator->() const { return handle.get(); }
+        constexpr Handle *operator->(void) const { return handle.get(); }
         
         std::shared_ptr<Handle> handle;
         Configure configure;
@@ -29,10 +29,10 @@ namespace SDB {
     class HandleReleasable {
     public:
         HandleReleasable(const std::shared_ptr<HandleWrapper> &value, const Releasable<std::shared_ptr<HandleWrapper>>::OnReleased &onReleased);
-        constexpr Handle *operator->() const {
+        constexpr Handle *operator->(void) const {
             return _value->operator->();
         }
-        operator bool() const;
+        operator bool(void) const;
         bool operator!=(const std::nullptr_t &) const;
         bool operator==(const std::nullptr_t &) const;
         

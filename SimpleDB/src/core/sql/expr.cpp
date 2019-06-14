@@ -16,7 +16,7 @@ namespace SDB {
     
     const Expr bind_parameter("?");
     
-    Expr::Expr()
+    Expr::Expr(void)
     : Describable("")
     {}
     
@@ -40,7 +40,7 @@ namespace SDB {
     : Describable(ValueWrapper(value, size))
     {}
     
-    Expr::operator ExprList() const
+    Expr::operator ExprList(void) const
     {
         return {*this};
     }

@@ -18,7 +18,7 @@ namespace SDB {
     
     class TableConstraint : public Describable {
     public:
-        TableConstraint();
+        TableConstraint(void);
         TableConstraint(const char *name);
         TableConstraint(const std::string &name);
         

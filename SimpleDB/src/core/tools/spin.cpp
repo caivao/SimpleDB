@@ -10,15 +10,15 @@
 
 namespace SDB {
     
-    void Spin::lock()
+    void Spin::lock(void)
     {
-        while (locked.test_and_set(std::memory_order_acquire))
+        while (_locked.test_and_set(std::memory_order_acquire))
             ;
     }
     
-    void Spin::unlock()
+    void Spin::unlock(void)
     {
-        locked.clear(std::memory_order_release);
+        _locked.clear(std::memory_order_release);
     }
     
 }

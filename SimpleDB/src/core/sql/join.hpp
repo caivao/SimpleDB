@@ -22,7 +22,7 @@ namespace SDB {
             inner,
             cross,
         };
-        Join();
+        Join(void);
         Join(const std::string &table);
         
         Join &join(const NestedQuery &query, Type type = Type::none, bool is_natural = false);

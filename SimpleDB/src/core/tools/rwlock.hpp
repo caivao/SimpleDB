@@ -18,18 +18,18 @@ namespace SDB {
     
     class RWlock {
     public:
-        RWlock();
-        ~RWlock();
-        void lock_read();
-        void unlock_read();
-        bool try_lock_read();
+        RWlock(void);
+        ~RWlock(void);
+        void lock_read(void);
+        void unlock_read(void);
+        bool try_lock_read(void);
         
-        void lock_write();
-        void unlock_write();
-        bool try_lock_write();
+        void lock_write(void);
+        void unlock_write(void);
+        bool try_lock_write(void);
         
-        bool is_writing() const;
-        bool is_reading() const;
+        bool is_writing(void) const;
+        bool is_reading(void) const;
         
     protected:
         mutable std::mutex _mutex;

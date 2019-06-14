@@ -16,11 +16,11 @@ namespace SDB {
     namespace STMT {
         class Statement : public Describable {
         public:
-            Statement();
+            Statement(void);
             const std::string &sql(void) const;
             virtual std::shared_ptr<ValueBinder> prepare(const void *context, Tracer &tracer, Error &error) const;
             virtual bool exec(const void *context, Tracer &tracer, Error &error) const;
-            virtual ~Statement();
+            virtual ~Statement(void);
         };
     }
 }

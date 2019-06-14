@@ -10,14 +10,14 @@
 
 namespace SDB {
     
-    RWlock::RWlock()
+    RWlock::RWlock(void)
     : _reader(0), _writer(0), _pending(0)
     {}
     
-    RWlock::~RWlock()
+    RWlock::~RWlock(void)
     {}
     
-    void RWlock::lock_read()
+    void RWlock::lock_read(void)
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         while (_writer > 0 || _pending > 0) {
@@ -26,7 +26,7 @@ namespace SDB {
         ++_reader;
     }
     
-    void RWlock::unlock_read()
+    void RWlock::unlock_read(void)
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         --_reader;
@@ -35,7 +35,7 @@ namespace SDB {
         }
     }
     
-    bool RWlock::try_lock_read()
+    bool RWlock::try_lock_read(void)
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         if (_writer > 0 || _pending > 0) {
@@ -45,7 +45,7 @@ namespace SDB {
         return true;
     }
     
-    void RWlock::lock_write()
+    void RWlock::lock_write(void)
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         ++_pending;
@@ -56,14 +56,14 @@ namespace SDB {
         ++_writer;
     }
     
-    void RWlock::unlock_write()
+    void RWlock::unlock_write(void)
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         --_writer;
         _cond.notify_all();
     }
     
-    bool RWlock::try_lock_write()
+    bool RWlock::try_lock_write(void)
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         if (_writer > 0 || _reader > 0) {
@@ -73,13 +73,13 @@ namespace SDB {
         return true;
     }
     
-    bool RWlock::is_writing() const
+    bool RWlock::is_writing(void) const
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         return _writer > 0;
     }
     
-    bool RWlock::is_reading() const
+    bool RWlock::is_reading(void) const
     {
         std::unique_lock<decltype(_mutex)> lock(_mutex);
         return _reader > 0;

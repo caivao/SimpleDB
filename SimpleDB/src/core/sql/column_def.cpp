@@ -26,7 +26,7 @@ namespace SDB {
         }
     }
     
-    ColumnDef::operator ColumnDefList() const
+    ColumnDef::operator ColumnDefList(void) const
     {
         return {*this};
     }

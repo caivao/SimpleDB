@@ -12,24 +12,24 @@
 
 namespace SDB {
     
-    Tracer::Tracer()
+    Tracer::Tracer(void)
     : _time(0)
     , _in_transaction(false)
-    , _performance_trace_handle(nullptr)
-    , _sql_trace_handle(nullptr)
+    , _performance_tracer_handle(nullptr)
+    , _sql_tracer_handle(nullptr)
     {}
     
     void Tracer::set(const PerformanceTraceHandle &handle, void *context)
     {
-        _performance_trace_handle = handle;
+        _performance_tracer_handle = handle;
         setup(context);
     }
     
     void Tracer::trace_performance(const std::string &sql, const int64_t &time)
     {
-        auto iter = _footprint.find(sql);
-        if (iter == _footprint.end()) {
-            _footprint.insert({sql, 1});
+        auto iter = _performance_caches.find(sql);
+        if (iter == _performance_caches.end()) {
+            _performance_caches.insert({sql, 1});
         } else {
             ++iter->second;
         }
@@ -38,33 +38,33 @@ namespace SDB {
     
     void Tracer::report_performance(void)
     {
-        if (!_footprint.empty() && _performance_trace_handle) {
-            _performance_trace_handle(_footprint, _time);
-            _footprint.clear();
+        if (!_performance_caches.empty() && _performance_tracer_handle) {
+            _performance_tracer_handle(_performance_caches, _time);
+            _performance_caches.clear();
             _time = 0;
         }
     }
     
     void Tracer::set(const SQLTraceHandle &handle, void *context)
     {
-        _sql_trace_handle = handle;
+        _sql_tracer_handle = handle;
         setup(context);
     }
     
     void Tracer::report_sql(const std::string &sql)
     {
-        if (_sql_trace_handle) {
-            _sql_trace_handle(sql);
+        if (_sql_tracer_handle) {
+            _sql_tracer_handle(sql);
         }
     }
     
     void Tracer::setup(void *context)
     {
         unsigned int flag = 0;
-        if (_sql_trace_handle) {
+        if (_sql_tracer_handle) {
             flag |= SQLITE_TRACE_STMT;
         }
-        if (_performance_trace_handle) {
+        if (_performance_tracer_handle) {
             flag |= SQLITE_TRACE_PROFILE;
         }
         if (flag > 0) {

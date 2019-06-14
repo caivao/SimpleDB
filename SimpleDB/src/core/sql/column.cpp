@@ -12,7 +12,7 @@ namespace SDB {
     const Column Column::all("*");
     const Column Column::row_id("rowid");
     
-    Column::Column()
+    Column::Column(void)
     : Describable("")
     {}
     Column::Column(const char *name)
@@ -22,7 +22,7 @@ namespace SDB {
     : Describable(name)
     {}
     
-    const std::string &Column::get_name() const
+    const std::string &Column::get_name(void) const
     {
         return _description;
     }
@@ -38,7 +38,7 @@ namespace SDB {
         return *this;
     }
     
-    Column::operator ColumnList() const
+    Column::operator ColumnList(void) const
     {
         return {*this};
     }

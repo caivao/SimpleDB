@@ -13,7 +13,7 @@
 
 namespace SDB {
     namespace STMT {
-        Statement::Statement()
+        Statement::Statement(void)
         : Describable("")
         {}
         
@@ -48,7 +48,7 @@ namespace SDB {
             return false;
         }
         
-        Statement::~Statement()
+        Statement::~Statement(void)
         {}
     }
 }

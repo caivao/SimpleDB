@@ -203,7 +203,7 @@ namespace SDB {
         ColumnDef &collate(const std::string &name);
         ColumnDef &collate(const char        *name);
         
-        operator ColumnDefList() const;
+        operator ColumnDefList(void) const;
     };
 }
 

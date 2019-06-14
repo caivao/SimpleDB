@@ -29,7 +29,7 @@ namespace SDB {
         }
     }
     
-    ColumnIndex::operator ColumnIndexList() const
+    ColumnIndex::operator ColumnIndexList(void) const
     {
         return {*this};
     }

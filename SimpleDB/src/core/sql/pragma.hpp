@@ -96,7 +96,7 @@ namespace SDB {
         static const Pragma wal_checkpoint;
         static const Pragma writable_schema;
         
-        const std::string &get_name() const;
+        const std::string &get_name(void) const;
         
     protected:
         Pragma(const char *name);

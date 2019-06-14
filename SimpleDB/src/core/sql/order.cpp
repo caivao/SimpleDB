@@ -32,7 +32,7 @@ namespace SDB {
         }
     }
     
-    Order::operator OrderList() const
+    Order::operator OrderList(void) const
     {
         return {*this};
     }

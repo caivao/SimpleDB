@@ -14,11 +14,11 @@ namespace SDB {
     : _handle(handle), _binder(binder)
     {}
     
-    StatementReleasable::StatementReleasable()
+    StatementReleasable::StatementReleasable(void)
     : _binder(nullptr), _handle({nullptr, nullptr})
     {}
     
-    StatementReleasable::operator bool() const
+    StatementReleasable::operator bool(void) const
     {
         return _binder != nullptr;
     }

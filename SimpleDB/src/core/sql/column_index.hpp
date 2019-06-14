@@ -19,7 +19,7 @@ namespace SDB {
         ColumnIndex(const Column &column, const Order::Term &term = Order::Term::none);
         ColumnIndex(const Expr &expr, const Order::Term &term = Order::Term::none);
         
-        operator ColumnIndexList() const;
+        operator ColumnIndexList(void) const;
     };
 }
 

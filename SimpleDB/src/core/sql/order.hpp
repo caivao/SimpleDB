@@ -39,7 +39,7 @@ namespace SDB {
         Order(const Expr &expr, const std::string &collation, Term term = Term::none);
         Order(const Expr &expr, Term term = Term::none);
         
-        operator OrderList() const;
+        operator OrderList(void) const;
     };
 }
 

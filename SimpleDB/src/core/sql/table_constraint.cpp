@@ -11,7 +11,7 @@
 
 namespace SDB {
     
-    TableConstraint::TableConstraint()
+    TableConstraint::TableConstraint(void)
     : Describable("")
     {}
     

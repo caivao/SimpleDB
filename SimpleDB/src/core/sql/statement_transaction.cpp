@@ -29,21 +29,21 @@ namespace SDB {
             return *this;
         }
         
-        Transaction &Transaction::commit()
+        Transaction &Transaction::commit(void)
         {
             _state = State::commit;
             _description.append("COMMIT");
             return *this;
         }
         
-        Transaction &Transaction::rollback()
+        Transaction &Transaction::rollback(void)
         {
             _state = State::rollback;
             _description.append("ROLLBACK");
             return *this;
         }
         
-        const Transaction::State &Transaction::get_state() const
+        const Transaction::State &Transaction::get_state(void) const
         {
             return _state;
         }

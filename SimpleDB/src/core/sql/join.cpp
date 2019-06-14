@@ -13,7 +13,7 @@
 
 namespace SDB {
     
-    Join::Join()
+    Join::Join(void)
     : Describable("")
     {}
     

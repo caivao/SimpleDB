@@ -21,8 +21,8 @@ namespace SDB {
         {
             return _binder.get();
         }
-        StatementReleasable();
-        operator bool() const;
+        StatementReleasable(void);
+        operator bool(void) const;
         bool operator!=(const std::nullptr_t &) const;
         bool operator==(const std::nullptr_t &) const;
         StatementReleasable &operator=(const std::nullptr_t &);

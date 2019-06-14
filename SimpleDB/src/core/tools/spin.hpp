@@ -15,11 +15,11 @@ namespace SDB {
     
     class Spin {
     public:
-        void lock();
-        void unlock();
+        void lock(void);
+        void unlock(void);
         
     protected:
-        std::atomic_flag locked = ATOMIC_FLAG_INIT;
+        std::atomic_flag _locked = ATOMIC_FLAG_INIT;
     };
     
     template <typename Spin>
@@ -30,7 +30,7 @@ namespace SDB {
             _spin.lock();
         }
         
-        ~SpinLockGuard()
+        ~SpinLockGuard(void)
         {
             _spin.unlock();
         }

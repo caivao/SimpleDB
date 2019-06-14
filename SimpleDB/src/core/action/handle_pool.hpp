@@ -25,7 +25,7 @@ namespace SDB {
     class HandlePool {
     public:
         static HandlePoolReleasable get_pool(const std::string &path, const Configure &configure);
-        static void purge_all_free_handles();
+        static void purge_all_free_handles(void);
         
         const std::string path;
         
@@ -34,12 +34,12 @@ namespace SDB {
         
         bool is_drained();
         typedef std::function<void(void)> OnDrained;
-        void blockade();
+        void blockade(void);
         void drain(HandlePool::OnDrained on_drained);
-        void unblockade();
-        bool is_blockaded() const;
+        void unblockade(void);
+        bool is_blockaded(void) const;
         
-        void purge_free_handles();
+        void purge_free_handles(void);
         
         void set_config(const std::string &name, const Config &config, Configure::Order order);
         void set_config(const std::string &name, const Config &config);

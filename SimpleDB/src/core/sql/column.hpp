@@ -19,15 +19,15 @@ namespace SDB {
         static const Column all;
         static const Column row_id;
         
-        Column();
+        Column(void);
         Column(const char *name);
         Column(const std::string &name);
-        const std::string &get_name() const;
+        const std::string &get_name(void) const;
         Column in_table(const std::string &table) const;
         
         Column &as(const std::string & alias);
         
-        operator ColumnList() const;
+        operator ColumnList(void) const;
         
         bool operator ==(const Column &column) const;
         bool operator !=(const Column &column) const;

@@ -17,14 +17,14 @@ namespace SDB {
     public:
         static const Expr bind_parameter;
         
-        Expr();
+        Expr(void);
         Expr(const Column &column);
         Expr(const char *value);
         Expr(const std::string &value);
         Expr(const std::nullptr_t &value);
         Expr(const void *value, int size);
         
-        operator ExprList() const;
+        operator ExprList(void) const;
         
         Expr operator !(void) const;
         Expr operator +(void) const;

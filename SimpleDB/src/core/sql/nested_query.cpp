@@ -34,7 +34,7 @@ namespace SDB {
         return *this;
     }
     
-    NestedQuery::operator NestedQueryList() const
+    NestedQuery::operator NestedQueryList(void) const
     {
         return {*this};
     }
