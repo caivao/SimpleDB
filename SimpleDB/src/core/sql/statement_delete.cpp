@@ -21,7 +21,7 @@ namespace SDB {
         Delete &Delete::where(const Expr &where)
         {
             if (!where.empty()) {
-                _description.append(" WHERE " + where.get_description());
+                _description.append(" WHERE " + where.description());
             }
             return *this;
         }
@@ -29,9 +29,9 @@ namespace SDB {
         Delete &Delete::limit(const Expr &from, const Expr &to)
         {
             if (!from.empty()) {
-                _description.append(" LIMIT " + from.get_description());
+                _description.append(" LIMIT " + from.description());
                 if (!to.empty()) {
-                    _description.append("," + to.get_description());
+                    _description.append("," + to.description());
                 }
             }
             return *this;
@@ -40,7 +40,7 @@ namespace SDB {
         Delete &Delete::limit(const Expr &limit)
         {
             if (!limit.empty()) {
-                _description.append(" LIMIT " + limit.get_description());
+                _description.append(" LIMIT " + limit.description());
             }
             return *this;
         }
@@ -48,7 +48,7 @@ namespace SDB {
         Delete &Delete::offset(const Expr &offset)
         {
             if (!offset.empty()) {
-                _description.append(" OFFSET " + offset.get_description());
+                _description.append(" OFFSET " + offset.description());
             }
             return *this;
         }

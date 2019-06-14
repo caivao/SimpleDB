@@ -31,7 +31,7 @@ namespace SDB {
             component_join(list, _description, separator);
         }
         
-        const std::string &get_description(void) const;
+        const std::string &description(void) const;
         explicit operator const std::string &(void) const;
         
         bool empty(void) const;

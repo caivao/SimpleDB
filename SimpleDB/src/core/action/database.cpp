@@ -10,8 +10,8 @@
 #include "sql.hpp"
 
 namespace SDB {
-    bool Database::exec(const STMT::Statement &stmt, Error &error)
-    {
-        return false;
-    }
+//    bool Database::exec(const STMT::Statement &stmt, Error &error)
+//    {
+//        return false;
+//    }
 }

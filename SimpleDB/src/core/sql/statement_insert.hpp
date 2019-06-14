@@ -28,7 +28,7 @@ namespace SDB {
                 _description.append("INSERT");
                 if (conflict != Conflict::none) {
                     _description.append(" OR ");
-                    _description.append(conflict.get_conflict());
+                    _description.append(conflict.conflict());
                 }
                 _description.append(" INTO " + table);
                 if (!column_list.empty()) {

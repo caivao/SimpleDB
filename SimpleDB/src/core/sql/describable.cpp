@@ -23,7 +23,7 @@ namespace SDB {
 //        std::cout << _description << std::endl;
     }
     
-    const std::string &Describable::get_description(void) const
+    const std::string &Describable::description(void) const
     {
         return _description;
     }
@@ -39,7 +39,7 @@ namespace SDB {
     
     std::ostream & operator <<(std::ostream &out, const Describable & expr)
     {
-        out << expr.get_description();
+        out << expr.description();
         return out;
     }
     

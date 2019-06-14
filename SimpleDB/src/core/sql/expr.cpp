@@ -21,7 +21,7 @@ namespace SDB {
     {}
     
     Expr::Expr(const Column &column)
-    : Describable(column.get_description())
+    : Describable(column.description())
     {}
     
     Expr::Expr(const char *value)

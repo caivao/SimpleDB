@@ -11,7 +11,7 @@
 
 namespace SDB {
     Order::Order(const Expr &expr, const std::string &collation, Term term)
-    : Describable(expr.get_description())
+    : Describable(expr.description())
     {
         if (!collation.empty()) {
             _description.append(" ");
@@ -24,7 +24,7 @@ namespace SDB {
     }
     
     Order::Order(const Expr &expr, Term term)
-    : Describable(expr.get_description())
+    : Describable(expr.description())
     {
         if(term != Term::none) {
             _description.append(" ");

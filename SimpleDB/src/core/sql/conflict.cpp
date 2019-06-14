@@ -40,7 +40,7 @@ namespace SDB {
         }
     }
     
-    const std::string &Conflict::get_conflict(void) const
+    const std::string &Conflict::conflict(void) const
     {
         return _description;
     }

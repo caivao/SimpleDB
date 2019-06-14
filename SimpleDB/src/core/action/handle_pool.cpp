@@ -17,7 +17,7 @@ namespace SDB {
     const int HandlePool::_hardware_concurrency = std::thread::hardware_concurrency();
     const int HandlePool::_max_concurrency = 64;
     
-    HandlePoolReleasable HandlePool::get_pool(const std::string &path, const Configure &configure)
+    HandlePoolReleasable HandlePool::pool(const std::string &path, const Configure &configure)
     {
         std::shared_ptr<HandlePool> pool = nullptr;
         std::lock_guard<std::mutex> lock_guard(_mutex);
@@ -32,7 +32,7 @@ namespace SDB {
         //Can I store iter of unordered_map for later use?
         return HandlePoolReleasable(pool, [](std::shared_ptr<HandlePool> &pool) {
             std::lock_guard<std::mutex> lock_guard(_mutex);
-            const auto &iter = _pools.find(pool->path);
+            const auto &iter = _pools.find(pool->_path);
             if (--iter->second.second == 0) {
                 _pools.erase(iter);
             }
@@ -54,7 +54,7 @@ namespace SDB {
     }
     
     HandlePool::HandlePool(const std::string &path, const Configure &configure)
-    : path(path)
+    : _path(path)
     , _configure(configure)
     , _handles(_hardware_concurrency)
     , _alive_handle_count(0)
@@ -143,10 +143,10 @@ namespace SDB {
     
     std::shared_ptr<HandleWrapper> HandlePool::generate(Error &error)
     {
-        std::shared_ptr<Handle> handle(new Handle(path));
+        std::shared_ptr<Handle> handle(new Handle(_path));
         Configure configure = _configure; //cache config to avoid multi-thread assigning
         if (!handle->open()) {
-            error = handle->get_error();
+            error = handle->error();
             return nullptr;
         }
         if (configure.invoke(handle, error)) {

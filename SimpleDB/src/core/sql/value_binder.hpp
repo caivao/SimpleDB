@@ -19,9 +19,16 @@ namespace SDB {
     class ValueBinder {
     public:
         
-        bool next(void);
+        bool step(void);
         void reset(void);
         void finalize(void);
+        bool ok(void) const;
+        const Error &error(void) const;
+        int column_count(void) const;
+        const char *column_name(int idx) const;
+        const char *table_name(int idx) const;
+        uint64_t last_insert_rowid(void) const;
+        
         
         /// setter
         template <ColumnDef::Type T>
@@ -106,12 +113,6 @@ namespace SDB {
         {
             return blob_value(idx, size);
         }
-        
-        int column_count(void) const;
-        const char *column_name(int idx) const;
-        const char *table_name(int idx) const;
-        
-        uint64_t last_insert_rowid(void) const;
         
         ~ValueBinder(void);
         

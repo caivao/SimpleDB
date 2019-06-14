@@ -13,7 +13,7 @@ namespace SDB {
     namespace STMT {
         Pragma &Pragma::pragma(const SDB::Pragma &pragma)
         {
-            _description.append("PRAGMA " + pragma.get_name());
+            _description.append("PRAGMA " + pragma.name());
             return *this;
         }
         
@@ -22,7 +22,7 @@ namespace SDB {
             if(!value) {
                 _description.append(" = 0");
             } else {
-                _description.append(" = " + ValueWrapper(value).get_description());
+                _description.append(" = " + ValueWrapper(value).description());
             }
             
             return *this;

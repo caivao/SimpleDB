@@ -9,6 +9,7 @@
 #include "error.hpp"
 
 namespace SDB {
+    
     Error::Error(void)
     : _msg(""), _code(0)
     {}
@@ -23,7 +24,7 @@ namespace SDB {
         _msg = "";
     }
     
-    bool Error::had_error(void)
+    bool Error::had_error(void) const
     {
         return _code != 0 && _code != 200;
     }

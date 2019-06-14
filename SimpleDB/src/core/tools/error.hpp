@@ -10,6 +10,7 @@
 #define error_hpp
 
 #include <string>
+#include "thread_share.hpp"
 
 namespace SDB {
     class Error {
@@ -19,13 +20,14 @@ namespace SDB {
         Error(const std::string &msg, int code);
         
         void reset(void);
-        bool had_error(void);
+        bool had_error(void) const;
         
         static void report(const std::string &msg, int code, Error *error);
         
     protected:
         std::string _msg;
         int _code;
+        static ThreadShare<bool> _slient;
     };
 }
 

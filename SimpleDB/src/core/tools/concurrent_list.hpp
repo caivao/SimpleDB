@@ -22,7 +22,7 @@ namespace SDB {
         : _capacity_cap(capacity_cap)
         {}
         
-        size_t get_capacity_cap(void) const
+        size_t capacity_cap(void) const
         {
             SpinLockGuard<Spin> lockGuard(_spin);
             return _capacity_cap;

@@ -13,9 +13,9 @@ namespace SDB {
         Explain &Explain::explain(const Statement &statement, bool query_plan)
         {
             if(query_plan) {
-                _description.append("EXPLAIN QUERY PLAN" + statement.get_description());
+                _description.append("EXPLAIN QUERY PLAN" + statement.description());
             } else {
-                _description.append("EXPLAIN " + statement.get_description());
+                _description.append("EXPLAIN " + statement.description());
             }
             return *this;
         }

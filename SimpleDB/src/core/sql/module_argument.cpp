@@ -13,11 +13,11 @@
 namespace SDB {
     
     ModuleArgument::ModuleArgument(const TableConstraint &table_constraint)
-    : Describable(table_constraint.get_description())
+    : Describable(table_constraint.description())
     {}
     
     ModuleArgument::ModuleArgument(const ColumnDef &column_def)
-    : Describable(column_def.get_description())
+    : Describable(column_def.description())
     {}
     
     ModuleArgument::ModuleArgument(const std::string &lhs, const std::string &rhs)

@@ -23,7 +23,7 @@ namespace SDB {
         static const Conflict &ignore;
         static const Conflict &replace;
         
-        const std::string & get_conflict(void) const;
+        const std::string & conflict(void) const;
         
         bool operator !=(const Conflict & operand) const;
         bool operator ==(const Conflict & operand) const;

@@ -9,23 +9,22 @@
 #include <iostream>
 
 #include "declare.hpp"
-#include "describable.hpp"
-#include "statement.hpp"
-#include "Expr.hpp"
-#include "column.hpp"
-#include "statement_vacuum.hpp"
-#include "statement_select.hpp"
-#include "statement_insert.hpp"
-#include "statement_pragma.hpp"
-#include "statement_create_table.hpp"
+#include "sql.hpp"
+#include "utils.hpp"
+#include "action.hpp"
+
+using namespace SDB;
+using namespace STMT;
+using namespace std;
 
 int main(int argc, const char * argv[]) {
     std::cout << "+++++++++++" << std::endl;
-    SDB::STMT::Insert().insert("student").print();
-    SDB::STMT::Select().select({"name", "age"}).from("student").where(SDB::Expr(SDB::Column("name")) == "lifeng").print();
-    SDB::STMT::Vacuum().vacuum("hahaha").print();
-    SDB::Expr(SDB::Column("ccc").in_table("Table")).not_like("nihao").print();
-    (SDB::STMT::Pragma().pragma(SDB::Pragma::auto_vacuum) = true).print();
+    STMT::Select().select({ Column("name") }).from("sqlite_master").where((Expr(Column("type")) == "table") && (Expr(Column("name")) == "table")).limit(1).print();
+    Insert().insert("student").print();
+    Select().select({"name", "age"}).from("student").where(SDB::Expr(SDB::Column("name")) == "lifeng").print();
+    Vacuum().vacuum("hahaha").print();
+    Expr(SDB::Column("ccc").at("Table")).not_like("nihao").print();
+    (STMT::Pragma().pragma(SDB::Pragma::auto_vacuum) = true).print();
     std::cout << "-----------" << std::endl;
     return 0;
 }

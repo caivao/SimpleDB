@@ -44,13 +44,13 @@ namespace SDB {
                     break;
             }
         }
-        _description.append(" JOIN " + query.get_description());
+        _description.append(" JOIN " + query.description());
         return *this;
     }
     
     Join &Join::on(const Expr &expr)
     {
-        _description.append(" ON " + expr.get_description());
+        _description.append(" ON " + expr.description());
         return *this;
     }
     

@@ -14,7 +14,7 @@ namespace SDB {
     namespace STMT {
         Attach &Attach::attach(const Expr &expr, const std::string &database)
         {
-            _description.append("ATTACH " + database + " " + expr.get_description());
+            _description.append("ATTACH " + database + " " + expr.description());
             return *this;
         }
         

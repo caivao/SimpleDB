@@ -28,7 +28,7 @@ namespace SDB {
             || std::is_base_of<std::string, T>::value,
             Pragma &>::type
             operator =(const T &value) {
-                _description.append(" = " + ValueWrapper(value).get_description());
+                _description.append(" = " + ValueWrapper(value).description());
                 return *this;
             }
             

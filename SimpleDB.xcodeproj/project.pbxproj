@@ -90,7 +90,7 @@
 		351535D222B2581B00EEA79D /* concurrent_list.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = concurrent_list.hpp; sourceTree = "<group>"; };
 		351535D422B2583300EEA79D /* spin.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = spin.cpp; sourceTree = "<group>"; };
 		351535D522B2583300EEA79D /* spin.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = spin.hpp; sourceTree = "<group>"; };
-		351535D822B2584700EEA79D /* thread_local.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = thread_local.hpp; sourceTree = "<group>"; };
+		351535D822B2584700EEA79D /* thread_share.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = thread_share.hpp; sourceTree = "<group>"; };
 		351535DB22B2585900EEA79D /* timed_queue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = timed_queue.hpp; sourceTree = "<group>"; };
 		3527147922A76E2D004AC52F /* expr.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = expr.cpp; sourceTree = "<group>"; };
 		3527147A22A76E2D004AC52F /* expr.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = expr.hpp; sourceTree = "<group>"; };
@@ -332,7 +332,7 @@
 				351535D222B2581B00EEA79D /* concurrent_list.hpp */,
 				351535D422B2583300EEA79D /* spin.cpp */,
 				351535D522B2583300EEA79D /* spin.hpp */,
-				351535D822B2584700EEA79D /* thread_local.hpp */,
+				351535D822B2584700EEA79D /* thread_share.hpp */,
 				351535DB22B2585900EEA79D /* timed_queue.hpp */,
 				3565047F22B22F6E00FE56E9 /* utils.hpp */,
 			);

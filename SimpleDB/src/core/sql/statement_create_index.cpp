@@ -27,7 +27,7 @@ namespace SDB {
         CreateIndex &CreateIndex::where(const Expr &expr)
         {
             if(!expr.empty()) {
-                _description.append(" WHERE " + expr.get_description());
+                _description.append(" WHERE " + expr.description());
             }
             return *this;
         }

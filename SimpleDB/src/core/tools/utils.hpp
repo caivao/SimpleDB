@@ -15,7 +15,7 @@
 #include "releasable.hpp"
 #include "rwlock.hpp"
 #include "concurrent_list.hpp"
-#include "thread_local.hpp"
+#include "thread_share.hpp"
 #include "timed_queue.hpp"
 
 #endif /* utils_hpp */

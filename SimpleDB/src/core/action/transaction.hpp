@@ -13,7 +13,7 @@
 #include "base.hpp"
 
 namespace SDB {
-    class Transaction : public Base {
+    class Transaction /*: public Base*/ {
         
     };
 }

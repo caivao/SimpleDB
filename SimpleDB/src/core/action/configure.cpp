@@ -29,10 +29,10 @@ namespace SDB {
         std::shared_ptr<ConfigureList> new_configures(new ConfigureList);
         bool inserted = false;
         for (const auto &wrapper : *configures.get()) {
-            if (!inserted && order < wrapper.order) {
+            if (!inserted && order < wrapper._order) {
                 new_configures->push_back({name, config, order});
                 inserted = true;
-            } else if (name != wrapper.name) {
+            } else if (name != wrapper._name) {
                 new_configures->push_back(wrapper);
             }
         }
@@ -48,10 +48,10 @@ namespace SDB {
         std::shared_ptr<ConfigureList> new_configures(new ConfigureList);
         bool inserted = false;
         for (const auto &wrapper : *configures.get()) {
-            if (name != wrapper.name) {
+            if (name != wrapper._name) {
                 new_configures->push_back(wrapper);
             } else {
-                new_configures->push_back({name, config, wrapper.order});
+                new_configures->push_back({name, config, wrapper._order});
                 inserted = true;
             }
         }
@@ -65,19 +65,19 @@ namespace SDB {
     {
         std::shared_ptr<ConfigureList> configures = _configures;
         for (const auto &configure : *configures.get()) {
-            if (configure.invoke && !configure.invoke(handle, error)) {
+            if (configure._invoke && !configure._invoke(handle, error)) {
                 return false;
             }
         }
         return true;
     }
     
-    Config Configure::get_config(const std::string &name) const
+    Config Configure::config(const std::string &name) const
     {
         std::shared_ptr<ConfigureList> configures = _configures;
         for (const auto &configure : *configures.get()) {
-            if (configure.name == name) {
-                return configure.invoke;
+            if (configure._name == name) {
+                return configure._invoke;
             }
         }
         return nullptr;

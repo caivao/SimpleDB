@@ -27,14 +27,14 @@ namespace SDB {
     {
         if (conflict != Conflict::none) {
             _description.append(" ON CONFLICT ");
-            _description.append(conflict.get_conflict());
+            _description.append(conflict.conflict());
         }
         return *this;
     }
     
     TableConstraint &TableConstraint::make_check(const Expr &expr)
     {
-        _description.append(" CHECK (" + expr.get_description() + ")");
+        _description.append(" CHECK (" + expr.description() + ")");
         return *this;
     }
     

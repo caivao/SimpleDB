@@ -10,24 +10,26 @@
 
 namespace SDB {
     const Column Column::all("*");
-    const Column Column::row_id("rowid");
+    const Column Column::rowid("rowid");
     
     Column::Column(void)
     : Describable("")
     {}
+    
     Column::Column(const char *name)
     : Describable(name)
     {}
+    
     Column::Column(const std::string &name)
     : Describable(name)
     {}
     
-    const std::string &Column::get_name(void) const
+    const std::string &Column::name(void) const
     {
         return _description;
     }
     
-    Column Column::in_table(const std::string &table) const
+    Column Column::at(const std::string &table) const
     {
         return Column(table + "." + _description);
     }

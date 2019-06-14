@@ -11,7 +11,7 @@
 
 namespace SDB {
     ColumnDef::ColumnDef(const Column & column, Type type)
-    : Describable(column.get_name() + " " + ColumnDef::get_type(type))
+    : Describable(column.name() + " " + ColumnDef::get_type(type))
     {}
     
     const std::string ColumnDef::get_type(const Type type)
@@ -38,7 +38,7 @@ namespace SDB {
             _description.append(" " + order_term.get_term());
         }
         if(conflict != Conflict::none) {
-            _description.append(" ON CONFLICT " + conflict.get_conflict());
+            _description.append(" ON CONFLICT " + conflict.conflict());
         }
         if(autoincrement) {
             _description.append(" AUTOINCREMENT");
@@ -49,7 +49,7 @@ namespace SDB {
     {
         _description.append(" NOT NULL");
         if(conflict != Conflict::none) {
-            _description.append(" ON CONFLICT " + conflict.get_conflict());
+            _description.append(" ON CONFLICT " + conflict.conflict());
         }
         return *this;
     }
@@ -57,13 +57,13 @@ namespace SDB {
     {
         _description.append(" UNIQUE");
         if(conflict != Conflict::none) {
-            _description.append(" ON CONFLICT " + conflict.get_conflict());
+            _description.append(" ON CONFLICT " + conflict.conflict());
         }
         return *this;
     }
     ColumnDef &ColumnDef::check(const Expr & expr)
     {
-        _description.append(" CHECK ( " + expr.get_description() + " )");
+        _description.append(" CHECK ( " + expr.description() + " )");
         return *this;
     }
     ColumnDef &ColumnDef::ddefault(const char        *value)
@@ -78,7 +78,7 @@ namespace SDB {
     }
     ColumnDef &ColumnDef::ddefault(const Expr &expr)
     {
-        _description.append(" DEFAULT ( " + expr.get_description() + " )");
+        _description.append(" DEFAULT ( " + expr.description() + " )");
         return *this;
     }
     ColumnDef &ColumnDef::collate(const char        *name)

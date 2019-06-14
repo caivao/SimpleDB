@@ -28,8 +28,8 @@ namespace SDB {
         std::shared_ptr<ValueBinder> prepare(const STMT::Statement &statement);
         bool exec(const STMT::Statement &statement);
         
-        const Error &get_error(void) const;
-        int get_changes(void);
+        const Error &error(void) const;
+        int changes(void);
         
         void set_tracer_handle(const PerformanceTraceHandle &handle);
         void set_tracer_handle(const SQLTraceHandle &handle);

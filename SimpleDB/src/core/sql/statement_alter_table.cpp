@@ -24,7 +24,7 @@ namespace SDB {
         
         AlterTable &AlterTable::add_column(const ColumnDef &column_def)
         {
-            _description.append(" ADD COLUMN " + column_def.get_description());
+            _description.append(" ADD COLUMN " + column_def.description());
             return *this;
         }
     }

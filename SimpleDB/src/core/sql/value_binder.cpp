@@ -15,7 +15,7 @@ namespace SDB {
     :_stmt(stmt)
     {}
     
-    bool ValueBinder::next(void)
+    bool ValueBinder::step(void)
     {
         int rc = sqlite3_step((sqlite3_stmt *)_stmt);
         if (rc == SQLITE_ROW || rc == SQLITE_OK || rc == SQLITE_DONE) {
@@ -51,6 +51,16 @@ namespace SDB {
             sqlite3 *handle = sqlite3_db_handle((sqlite3_stmt *)_stmt);
             Error::report(sqlite3_errmsg(handle), sqlite3_extended_errcode(handle), &_error);
         }
+    }
+    
+    bool ValueBinder::ok(void) const
+    {
+        return _error.had_error();
+    }
+    
+    const Error &ValueBinder::error(void) const
+    {
+        return _error;
     }
     
     void ValueBinder::bind_null(int idx)

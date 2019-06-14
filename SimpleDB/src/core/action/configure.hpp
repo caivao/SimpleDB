@@ -34,20 +34,19 @@ namespace SDB {
         Configure(void);
         Configure(std::initializer_list<const ConfigWrapper> configures);
         
-        Config get_config(const std::string &name) const;
+        Config config(const std::string &name) const;
         
     protected:
         typedef std::list<ConfigWrapper> ConfigureList;
-        
         std::shared_ptr<ConfigureList> _configures;
     };
     
     struct ConfigWrapper {
-        const std::string name;
-        const Config invoke;
-        const Configure::Order order;
+        const std::string _name;
+        const Config _invoke;
+        const Configure::Order _order;
         ConfigWrapper(const std::string &name, const Config &config, Configure::Order order)
-        : name(name), invoke(config), order(order)
+        : _name(name), _invoke(config), _order(order)
         {}
     };
 }

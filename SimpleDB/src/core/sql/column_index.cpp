@@ -12,7 +12,7 @@
 
 namespace SDB {
     ColumnIndex::ColumnIndex(const Column &column, const Order::Term &term)
-    : Describable(column.get_name())
+    : Describable(column.name())
     {
         if (term != Order::Term::none) {
             _description.append(" ");
@@ -21,7 +21,7 @@ namespace SDB {
     }
     
     ColumnIndex::ColumnIndex(const Expr &expr, const Order::Term &term)
-    : Describable(expr.get_description())
+    : Describable(expr.description())
     {
         if (term != Order::Term::none) {
             _description.append(" ");

@@ -21,7 +21,7 @@ namespace SDB {
     {}
     
     NestedQuery::NestedQuery(const Join &join)
-    : Describable("(" + join.get_description() + ")")
+    : Describable("(" + join.description() + ")")
     {}
     
     NestedQuery::NestedQuery(const STMT::Select &select)

@@ -24,10 +24,10 @@ namespace SDB {
     
     class HandlePool {
     public:
-        static HandlePoolReleasable get_pool(const std::string &path, const Configure &configure);
+        static HandlePoolReleasable pool(const std::string &path, const Configure &configure);
         static void purge_all_free_handles(void);
         
-        const std::string path;
+        const std::string _path;
         
         HandleReleasable flow_out(Error &error);
         bool fill_one(Error &error);

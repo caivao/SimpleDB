@@ -59,12 +59,12 @@ namespace SDB {
         return statement.exec(_context, _tracer, _error);
     }
     
-    const Error &Handle::get_error(void) const
+    const Error &Handle::error(void) const
     {
         return _error;
     }
     
-    int Handle::get_changes(void)
+    int Handle::changes(void)
     {
         return sqlite3_changes((sqlite3 *)_context);
     }

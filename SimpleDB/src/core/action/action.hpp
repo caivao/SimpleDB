@@ -13,6 +13,8 @@
 #include "database.hpp"
 #include "transaction.hpp"
 #include "configure.hpp"
-#include "pool.hpp"
+#include "handle_pool.hpp"
+#include "handle_releasable.hpp"
+#include "statement_releasable.hpp"
 
 #endif /* action_hpp */

@@ -11,19 +11,27 @@
 
 #include "declare.hpp"
 #include "describable.hpp"
+#include "value_wrapper.hpp"
 
 namespace SDB {
     class Column : public Describable {
         
     public:
         static const Column all;
-        static const Column row_id;
+        static const Column rowid;
         
         Column(void);
         Column(const char *name);
         Column(const std::string &name);
-        const std::string &get_name(void) const;
-        Column in_table(const std::string &table) const;
+        template <typename T>
+        Column(const T &value,
+             typename std::enable_if<std::is_arithmetic<T>::value ||
+             std::is_enum<T>::value>::type * = nullptr)
+        : Describable(ValueWrapper(value))
+        {}
+        
+        const std::string &name(void) const;
+        Column at(const std::string &table) const;
         
         Column &as(const std::string & alias);
         

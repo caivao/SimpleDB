@@ -11,6 +11,7 @@
 
 #include "declare.hpp"
 #include "describable.hpp"
+#include "value_wrapper.hpp"
 
 namespace SDB {
     class Expr: public Describable {
@@ -23,6 +24,12 @@ namespace SDB {
         Expr(const std::string &value);
         Expr(const std::nullptr_t &value);
         Expr(const void *value, int size);
+        template <typename T>
+        Expr(const T &value,
+             typename std::enable_if<std::is_arithmetic<T>::value ||
+             std::is_enum<T>::value>::type * = nullptr)
+        : Describable(ValueWrapper(value))
+        {}
         
         operator ExprList(void) const;
         

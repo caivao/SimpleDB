@@ -17,7 +17,7 @@ namespace SDB {
             _description.append("UPDATE ");
             if (conflict != Conflict::none) {
                 _description.append("OR ");
-                _description.append(conflict.get_conflict());
+                _description.append(conflict.conflict());
                 _description.append(" ");
             }
             _description.append(table);
@@ -27,7 +27,7 @@ namespace SDB {
         Update &Update::where(const Expr &where)
         {
             if (!where.empty()) {
-                _description.append(" WHERE " + where.get_description());
+                _description.append(" WHERE " + where.description());
             }
             return *this;
         }
@@ -35,9 +35,9 @@ namespace SDB {
         Update &Update::limit(const Expr &from, const Expr &to)
         {
             if (!from.empty()) {
-                _description.append(" LIMIT " + from.get_description());
+                _description.append(" LIMIT " + from.description());
                 if (!to.empty()) {
-                    _description.append("," + to.get_description());
+                    _description.append("," + to.description());
                 }
             }
             return *this;
@@ -46,7 +46,7 @@ namespace SDB {
         Update &Update::limit(const Expr &limit)
         {
             if (!limit.empty()) {
-                _description.append(" LIMIT " + limit.get_description());
+                _description.append(" LIMIT " + limit.description());
             }
             return *this;
         }
@@ -54,7 +54,7 @@ namespace SDB {
         Update &Update::offset(const Expr &offset)
         {
             if (!offset.empty()) {
-                _description.append(" OFFSET " + offset.get_description());
+                _description.append(" OFFSET " + offset.description());
             }
             return *this;
         }
