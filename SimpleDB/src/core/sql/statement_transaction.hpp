@@ -32,7 +32,7 @@ namespace SDB {
             Transaction &commit(void);
             Transaction &rollback(void);
             
-            const Transaction::State &get_state(void) const;
+            const Transaction::State &state(void) const;
             
             std::shared_ptr<ValueBinder> prepare(const void *context, Tracer &tracer, Error &error) const override;
             bool exec(const void *context, Tracer &tracer, Error &error) const override;

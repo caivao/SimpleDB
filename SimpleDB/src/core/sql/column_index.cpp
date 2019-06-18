@@ -16,7 +16,7 @@ namespace SDB {
     {
         if (term != Order::Term::none) {
             _description.append(" ");
-            _description.append(term.get_term());
+            _description.append(term.term());
         }
     }
     
@@ -25,7 +25,7 @@ namespace SDB {
     {
         if (term != Order::Term::none) {
             _description.append(" ");
-            _description.append(term.get_term());
+            _description.append(term.term());
         }
     }
     

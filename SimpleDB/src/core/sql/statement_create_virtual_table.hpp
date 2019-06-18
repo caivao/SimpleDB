@@ -29,7 +29,7 @@ namespace SDB {
                 _description.append(" USING " + module);
                 if (!module_argument_list.empty()) {
                     _description.append("(");
-                    component_join(module_argument_list);
+                    join_component(module_argument_list);
                     _description.append(")");
                 }
                 return *this;

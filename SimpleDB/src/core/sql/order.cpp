@@ -19,7 +19,7 @@ namespace SDB {
         }
         if (term != Term::none) {
             _description.append(" ");
-            _description.append(term.get_term());
+            _description.append(term.term());
         }
     }
     
@@ -28,7 +28,7 @@ namespace SDB {
     {
         if(term != Term::none) {
             _description.append(" ");
-            _description.append(term.get_term());
+            _description.append(term.term());
         }
     }
     
@@ -41,7 +41,7 @@ namespace SDB {
     const Order::Term &Order::Term::asc(Term::Type::asc);
     const Order::Term &Order::Term::desc(Term::Type::desc);
     
-    const std::string &Order::Term::get_term(void) const
+    const std::string &Order::Term::term(void) const
     {
         return _description;
     }

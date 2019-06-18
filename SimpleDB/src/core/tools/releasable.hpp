@@ -18,7 +18,7 @@ namespace SDB {
     class Releasable {
     public:
         typedef std::function<void(T &)> OnReleased;
-        static const Releasable inValid;
+        static const Releasable invalid;
         
         Releasable(const T &value, const OnReleased &on_released)
         : _value(value)

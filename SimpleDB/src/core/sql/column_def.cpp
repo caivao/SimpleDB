@@ -11,18 +11,18 @@
 
 namespace SDB {
     ColumnDef::ColumnDef(const Column & column, Type type)
-    : Describable(column.name() + " " + ColumnDef::get_type(type))
+    : Describable(column.name() + " " + ColumnDef::type(type))
     {}
     
-    const std::string ColumnDef::get_type(const Type type)
+    const std::string ColumnDef::type(const Type type)
     {
         switch (type) {
-            case Type::real:        return TypeMeta<Type::real>::sql_type;
-            case Type::int32:   return TypeMeta<Type::int32>::sql_type;
-            case Type::int64:   return TypeMeta<Type::int64>::sql_type;
-            case Type::text:        return TypeMeta<Type::text>::sql_type;
-            case Type::blob:        return TypeMeta<Type::blob>::sql_type;
-            default:                return TypeMeta<Type::null>::sql_type;
+            case Type::real:  return TypeMeta<Type::real>::sql_type;
+            case Type::int32: return TypeMeta<Type::int32>::sql_type;
+            case Type::int64: return TypeMeta<Type::int64>::sql_type;
+            case Type::text:  return TypeMeta<Type::text>::sql_type;
+            case Type::blob:  return TypeMeta<Type::blob>::sql_type;
+            default:          return TypeMeta<Type::null>::sql_type;
         }
     }
     
@@ -35,7 +35,7 @@ namespace SDB {
     {
         _description.append(" PRIMARY KEY");
         if(order_term != Order::Term::none) {
-            _description.append(" " + order_term.get_term());
+            _description.append(" " + order_term.term());
         }
         if(conflict != Conflict::none) {
             _description.append(" ON CONFLICT " + conflict.conflict());

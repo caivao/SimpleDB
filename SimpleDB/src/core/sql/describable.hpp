@@ -17,18 +17,17 @@ namespace SDB {
     class Describable {
     public:
         template <typename T>
-        static std::string get_component_join(const std::list<const T> &list)
+        static std::string component_joined(const std::list<const T> &list)
         {
             std::string description;
-            component_join(list, description);
+            join_component(list, description);
             return description;
         }
         
         template <typename T>
-        void component_join(const std::list<const T> &list,
-                            const std::string &separator = ", ")
+        void join_component(const std::list<const T> &list, const std::string &separator = ", ")
         {
-            component_join(list, _description, separator);
+            join_component(list, _description, separator);
         }
         
         const std::string &description(void) const;
@@ -42,9 +41,7 @@ namespace SDB {
         
     protected:
         template <typename T>
-        static void component_join(const std::list<const T> &list,
-                                   std::string &output,
-                                   const std::string &separator = ", ")
+        static void join_component(const std::list<const T> &list, std::string &output, const std::string &separator = ", ")
         {
             bool flag = false;
             for (const auto & component : list) {

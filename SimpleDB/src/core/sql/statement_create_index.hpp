@@ -25,7 +25,7 @@ namespace SDB {
             on(const std::string &table, const std::list<const T> &index_list)
             {
                 _description.append(" ON " + table + "(");
-                component_join(index_list);
+                join_component(index_list);
                 _description.append(")");
                 return *this;
             }

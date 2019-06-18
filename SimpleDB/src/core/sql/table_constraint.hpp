@@ -28,7 +28,7 @@ namespace SDB {
         make_primary(const std::list<const T> &column_index_list)
         {
             _description.append(" PRIMARY KEY(");
-            component_join(column_index_list);
+            join_component(column_index_list);
             _description.append(")");
             return *this;
         }
@@ -39,7 +39,7 @@ namespace SDB {
         make_unique(const std::list<const T> &column_index_list)
         {
             _description.append(" UNIQUE (");
-            component_join(column_index_list);
+            join_component(column_index_list);
             _description.append(")");
             return *this;
         }

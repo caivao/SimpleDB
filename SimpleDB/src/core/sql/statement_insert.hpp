@@ -33,7 +33,7 @@ namespace SDB {
                 _description.append(" INTO " + table);
                 if (!column_list.empty()) {
                     _description.append("(");
-                    component_join(column_list);
+                    join_component(column_list);
                     _description.append(")");
                 }
                 return *this;
@@ -46,7 +46,7 @@ namespace SDB {
             {
                 if (!expr_list.empty()) {
                     _description.append(" VALUES(");
-                    component_join(expr_list);
+                    join_component(expr_list);
                     _description.append(")");
                 }
                 return *this;

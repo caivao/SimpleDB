@@ -26,7 +26,7 @@ namespace SDB {
             {
                 if (!order_list.empty()) {
                     _description.append(" ORDER BY ");
-                    component_join(order_list);
+                    join_component(order_list);
                 }
                 return *this;
             }

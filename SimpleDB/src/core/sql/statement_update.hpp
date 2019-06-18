@@ -35,7 +35,7 @@ namespace SDB {
                     } else {
                         flag = true;
                     }
-                    _description.append(value.first.get_description() + "=" + value.second.get_description());
+                    _description.append(value.first.description() + "=" + value.second.description());
                 }
                 return *this;
             }
@@ -49,7 +49,7 @@ namespace SDB {
             {
                 if (!order_list.empty()) {
                     _description.append(" ORDER BY ");
-                    component_join(order_list);
+                    join_component(order_list);
                 }
                 return *this;
             }

@@ -34,7 +34,7 @@ namespace SDB {
         usingg(const std::list<const T> &column_list)
         {
             _description.append(" USING ");
-            component_join(column_list);
+            join_component(column_list);
             return *this;
         }
     };

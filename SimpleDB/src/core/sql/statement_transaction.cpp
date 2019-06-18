@@ -43,7 +43,7 @@ namespace SDB {
             return *this;
         }
         
-        const Transaction::State &Transaction::get_state(void) const
+        const Transaction::State &Transaction::state(void) const
         {
             return _state;
         }

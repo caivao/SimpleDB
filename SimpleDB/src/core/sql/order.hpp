@@ -21,7 +21,7 @@ namespace SDB {
             static const Term &asc;
             static const Term &desc;
             
-            const std::string &get_term(void) const;
+            const std::string &term(void) const;
             
             bool operator !=(const Term & operand) const;
             bool operator ==(const Term & operand) const;

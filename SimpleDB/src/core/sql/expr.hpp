@@ -71,7 +71,7 @@ namespace SDB {
         {
             Expr expr;
             expr._description.append(_description + " IN(");
-            expr.component_join(expr_list);
+            expr.join_component(expr_list);
             expr._description.append(")");
             return expr;
         }
@@ -98,7 +98,7 @@ namespace SDB {
         {
             Expr expr;
             expr._description.append(_description + " NOT IN(");
-            expr.component_join(expr_list);
+            expr.join_component(expr_list);
             expr._description.append(")");
             return expr;
         }
@@ -125,7 +125,7 @@ namespace SDB {
         {
             Expr expr;
             expr._description.append("(");
-            expr.component_join(expr_list);
+            expr.join_component(expr_list);
             expr._description.append(")");
             return expr;
         }
@@ -147,16 +147,14 @@ namespace SDB {
         template <typename T = Expr>
         static typename std::enable_if<std::is_base_of<Expr, T>::value,
         Expr>::type
-        functionn(const std::string &function,
-                  const std::list<const T> &expr_list,
-                  bool distinct = false)
+        functionn(const std::string &function, const std::list<const T> &expr_list, bool distinct = false)
         {
             Expr expr;
             expr._description.append(function + "(");
             if (distinct) {
                 expr._description.append("DISTINCT ");
             }
-            expr.component_join(expr_list);
+            expr.join_component(expr_list);
             expr._description.append(")");
             return expr;
         }

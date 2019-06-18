@@ -26,7 +26,7 @@ namespace SDB {
                 if (distinct) {
                     _description.append("DISTINCT ");
                 }
-                component_join(column_list);
+                join_component(column_list);
                 return *this;
             }
             
@@ -36,7 +36,7 @@ namespace SDB {
             from(const std::list<const T> &query_list)
             {
                 _description.append(" FROM ");
-                component_join(query_list);
+                join_component(query_list);
                 return *this;
             }
             
@@ -51,7 +51,7 @@ namespace SDB {
             {
                 if (!order_list.empty()) {
                     _description.append(" ORDER BY ");
-                    component_join(order_list);
+                    join_component(order_list);
                 }
                 return *this;
             }
@@ -67,7 +67,7 @@ namespace SDB {
             {
                 if (!group_list.empty()) {
                     _description.append(" GROUP BY ");
-                    component_join(group_list);
+                    join_component(group_list);
                 }
                 return *this;
             }

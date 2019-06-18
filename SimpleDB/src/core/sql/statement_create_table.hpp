@@ -33,7 +33,7 @@ namespace SDB {
                     _description.append("IF NOT EXISTS ");
                 }
                 _description.append(table + "(");
-                component_join(column_defs);
+                join_component(column_defs);
                 _description.append(")");
                 return *this;
             }

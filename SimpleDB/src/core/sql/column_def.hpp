@@ -187,7 +187,7 @@ namespace SDB {
         struct Meta<T, typename std::enable_if<BLOBCheck<T>::value>::type>
         : public TypeMeta<Type::blob>{};
         
-        static const std::string get_type(const Type type);
+        static const std::string type(const Type type);
         
         ColumnDef(const Column & column, Type type);
         
