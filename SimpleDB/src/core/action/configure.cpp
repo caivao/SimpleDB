@@ -12,8 +12,7 @@ namespace SDB {
     
     Configure::Configure(void)
     : _configures(new ConfigureList)
-    {
-    }
+    {}
     
     Configure::Configure(std::initializer_list<const ConfigWrapper> configures)
     : _configures(new ConfigureList)
