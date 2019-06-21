@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'git@github.com:caivao/SimpleDB.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
-  s.public_header_files = "objc/WCDB/WCDB.h", "objc/WCDB/**/*.{h,hpp}"
-  s.source_files  = "objc/WCDB/WCDB.h", "objc/WCDB/**/*.{h,m,hpp,cpp,mm}"
+  s.public_header_files = "SimpleDB/src/SDB.h", "SimpleDB/src/**/*.{h,hpp}"
+  s.source_files  = "SimpleDB/src/SDB.h", "SimpleDB/src/**/*.{h,m,hpp,cpp,mm}"
   s.frameworks = "CoreFoundation", "Foundation"
   s.ios.frameworks = "UIKit"
   s.libraries = "z", "c++"
@@ -27,5 +27,5 @@ Pod::Spec.new do |s|
     "OTHER_CFLAGS" => "-fvisibility-inlines-hidden",
     "OTHER_CPLUSPLUSFLAGS" => "-fvisibility-inlines-hidden",
   }
-  
+
 end
