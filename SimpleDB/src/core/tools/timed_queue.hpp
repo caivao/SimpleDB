@@ -61,8 +61,8 @@ namespace SDB {
                     }
                 }
             }
-            bool get = false;
-            while (!get) {
+            bool got = false;
+            while (!got) {
                 Element element;
                 Time now = std::chrono::steady_clock::now();
                 {
@@ -71,10 +71,10 @@ namespace SDB {
                     if (now > element.second) {
                         _list.pop_back();
                         _map.erase(element.first);
-                        get = true;
+                        got = true;
                     }
                 }
-                if (get) {
+                if (got) {
                     onExpired(element.first);
                 } else {
                     std::this_thread::sleep_for(element.second - now);

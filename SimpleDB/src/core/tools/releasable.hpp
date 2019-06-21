@@ -23,10 +23,8 @@ namespace SDB {
         Releasable(const T &value, const OnReleased &on_released)
         : _value(value)
         , _on_released(on_released)
-        , _reference(new std::atomic<int>(0))
-        {
-            retain();
-        }
+        , _reference(new std::atomic<int>(1))
+        {}
         
         Releasable(const Releasable &other)
         : _value(other._value)

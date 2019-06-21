@@ -27,12 +27,12 @@ namespace SDB {
         std::shared_ptr<ConfigureList> configures = _configures;
         std::shared_ptr<ConfigureList> new_configures(new ConfigureList);
         bool inserted = false;
-        for (const auto &wrapper : *configures.get()) {
-            if (!inserted && order < wrapper._order) {
+        for (const auto &c : *configures.get()) {
+            if (!inserted && order < c._order) {
                 new_configures->push_back({name, config, order});
                 inserted = true;
-            } else if (name != wrapper._name) {
-                new_configures->push_back(wrapper);
+            } else if (name != c._name) {
+                new_configures->push_back(c);
             }
         }
         if (!inserted) {
@@ -46,11 +46,11 @@ namespace SDB {
         std::shared_ptr<ConfigureList> configures = _configures;
         std::shared_ptr<ConfigureList> new_configures(new ConfigureList);
         bool inserted = false;
-        for (const auto &wrapper : *configures.get()) {
-            if (name != wrapper._name) {
-                new_configures->push_back(wrapper);
+        for (const auto &c : *configures.get()) {
+            if (name != c._name) {
+                new_configures->push_back(c);
             } else {
-                new_configures->push_back({name, config, wrapper._order});
+                new_configures->push_back({name, config, c._order});
                 inserted = true;
             }
         }
