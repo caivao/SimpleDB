@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'git@github.com:caivao/SimpleDB.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
+  s.osx.deployment_target = "10.13"
   s.public_header_files = "SimpleDB/src/SDB.h", "SimpleDB/src/**/*.{h,hpp}"
   s.source_files  = "SimpleDB/src/SDB.h", "SimpleDB/src/**/*.{h,m,hpp,cpp,mm}"
   s.frameworks = "CoreFoundation", "Foundation"
