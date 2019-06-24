@@ -29,7 +29,7 @@ namespace SDB {
         
         typedef std::function<void(const Key &)> OnExpired;
         
-        void reQueue(const Key &key)
+        void requeue(const Key &key)
         {
             std::lock_guard<std::mutex> lock_guard(_mutex);
             bool signal = _list.empty();
@@ -49,7 +49,7 @@ namespace SDB {
             }
         }
         
-        void waitUntilExpired(const OnExpired &onExpired, bool forever = true)
+        void wait_until_expired(const OnExpired &on_expired, bool forever = true)
         {
             {
                 std::unique_lock<std::mutex> lock_guard(_mutex);
@@ -75,7 +75,7 @@ namespace SDB {
                     }
                 }
                 if (got) {
-                    onExpired(element.first);
+                    on_expired(element.first);
                 } else {
                     std::this_thread::sleep_for(element.second - now);
                 }

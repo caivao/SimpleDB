@@ -7,6 +7,7 @@
 //
 
 #include "rwlock.hpp"
+#include "macro.h"
 
 namespace SDB {
     

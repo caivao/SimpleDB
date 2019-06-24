@@ -12,7 +12,7 @@
 #include "error.hpp"
 #include "file.hpp"
 #include "path.hpp"
-#include "releasable.hpp"
+#include "recycle.hpp"
 #include "rwlock.hpp"
 #include "concurrent_list.hpp"
 #include "thread_share.hpp"

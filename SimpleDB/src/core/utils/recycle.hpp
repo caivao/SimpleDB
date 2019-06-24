@@ -1,13 +1,13 @@
 //
-//  releasable.hpp
+//  recycle.hpp
 //  SimpleDB
 //
 //  Created by lifeng on 2019/6/13.
 //  Copyright © 2019 feng. All rights reserved.
 //
 
-#ifndef releasable_hpp
-#define releasable_hpp
+#ifndef recycle_hpp
+#define recycle_hpp
 
 #include "declare.hpp"
 #include <functional>
@@ -15,47 +15,47 @@
 namespace SDB {
     
     template <typename T>
-    class Releasable {
+    class Recycle {
     public:
-        typedef std::function<void(T &)> OnReleased;
-        static const Releasable invalid;
+        typedef std::function<void(T &)> OnRecycled;
+        static const Recycle invalid;
         
-        Releasable(const T &value, const OnReleased &on_released)
+        Recycle(const T &value, const OnRecycled &on_recycled)
         : _value(value)
-        , _on_released(on_released)
+        , _on_recycled(on_recycled)
         , _reference(new std::atomic<int>(1))
         {}
         
-        Releasable(const Releasable &other)
+        Recycle(const Recycle &other)
         : _value(other._value)
-        , _on_released(other._on_released)
+        , _on_recycled(other._on_recycled)
         , _reference(other._reference)
         {
             retain();
         }
         
-        Releasable &operator=(const Releasable &other)
+        Recycle &operator=(const Recycle &other)
         {
             other.retain();
             release();
             _value = other._value;
-            _on_released = other._on_released;
+            _on_recycled = other._on_recycled;
             _reference = other._reference;
             return *this;
         }
         
         typename std::enable_if<std::is_convertible<std::nullptr_t, T>::value,
-        Releasable &>::type
+        Recycle &>::type
         operator=(const std::nullptr_t &)
         {
             release();
-            _value = nullptr;
+        _value = nullptr;
             _reference = nullptr;
-            _on_released = nullptr;
+            _on_recycled = nullptr;
             return *this;
         }
         
-        ~Releasable(void)
+        ~Recycle(void)
         {
             release();
         }
@@ -80,7 +80,7 @@ namespace SDB {
         }
         
     protected:
-        Releasable(void) //invalid
+        Recycle(void) //invalid
         : _reference(new std::atomic<int>(0))
         {}
         
@@ -97,9 +97,9 @@ namespace SDB {
                 if (--(*_reference) == 0) {
                     delete _reference;
                     _reference = nullptr;
-                    if (_on_released) {
-                        _on_released(_value);
-                        _on_released = nullptr;
+                    if (_on_recycled) {
+                        _on_recycled(_value);
+                        _on_recycled = nullptr;
                     }
                 }
             }
@@ -107,9 +107,9 @@ namespace SDB {
         
         T _value;
         mutable std::atomic<int> *_reference;
-        Releasable::OnReleased _on_released;
+        Recycle::OnRecycled _on_recycled;
     };
     
 }
 
-#endif /* releasable_hpp */
+#endif /* recycle_hpp */

@@ -11,7 +11,6 @@
 
 #include "declare.hpp"
 #include "sql.hpp"
-#include "action.hpp"
 #include "utils.hpp"
 
 #endif /* SDB_hpp */

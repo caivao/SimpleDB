@@ -12,7 +12,6 @@
 #include "declare.hpp"
 #include "sql.hpp"
 #include "utils.hpp"
-#include "action.hpp"
 
 using namespace SDB;
 using namespace STMT;

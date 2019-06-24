@@ -16,20 +16,18 @@
 #include <string>
 #include <utility>
 
+#include "macro/macro.h"
+
 namespace SDB {
     
     /// tools
     class Error;
-//    class Releasable;
     
     /// action
     class Base;
     class Database;
     class Transaction;
-    class Configure;
-    class HandlePool;
-    class HandleReleasable;
-    class StatementReleasable;
+    class ConfigList;
     
     /// sql
     class Describable;

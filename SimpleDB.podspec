@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source_files  = "SimpleDB/src/SDB.h", "SimpleDB/src/**/*.{h,m,hpp,cpp,mm}"
   s.frameworks = "CoreFoundation", "Foundation"
   s.ios.frameworks = "UIKit"
-  s.libraries = "z", "c++", "sqlite3"
+  s.libraries = "z", "c++", "sqlite3.0"
   s.requires_arc = true
   s.pod_target_xcconfig = {
     "LIBRARY_SEARCH_PATHS[sdk=macosx*]" => "$(SDKROOT)/usr/lib/system",

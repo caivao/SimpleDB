@@ -12,6 +12,8 @@
 #include "spin.hpp"
 #include <list>
 
+/// 线程安全的list
+
 namespace SDB {
     
     template <typename T>
@@ -51,7 +53,7 @@ namespace SDB {
         ElementType pop_back(void)
         {
             SpinLockGuard<Spin> lock_guard(_spin);
-            if (_list.empty()) {
+            if (SDBunlikely(_list.empty())) {
                 return nullptr;
             }
             ElementType value = _list.back();
@@ -62,7 +64,7 @@ namespace SDB {
         ElementType pop_front(void)
         {
             SpinLockGuard<Spin> lock_guard(_spin);
-            if (_list.empty()) {
+            if (SDBunlikely(_list.empty())) {
                 return nullptr;
             }
             ElementType value = _list.front();
